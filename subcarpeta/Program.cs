@@ -1,6 +1,6 @@
 using System;
 
-public class Hello
+public class Program
 {
     public static void Main(string[] args)
     {
@@ -9,6 +9,6 @@ public class Hello
 
     public static void DisplayWelcomeMessage()
     {
-        Console.WriteLine("¡Bienvenido!");
+        Console.WriteLine("¡Bienvenido al programa!");
     }
 }

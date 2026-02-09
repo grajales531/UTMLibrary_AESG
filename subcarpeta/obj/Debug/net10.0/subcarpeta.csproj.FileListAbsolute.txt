@@ -1,0 +1,15 @@
+C:\programacion-tarea\subcarpeta\bin\Debug\net10.0\subcarpeta.exe
+C:\programacion-tarea\subcarpeta\bin\Debug\net10.0\subcarpeta.deps.json
+C:\programacion-tarea\subcarpeta\bin\Debug\net10.0\subcarpeta.runtimeconfig.json
+C:\programacion-tarea\subcarpeta\bin\Debug\net10.0\subcarpeta.dll
+C:\programacion-tarea\subcarpeta\bin\Debug\net10.0\subcarpeta.pdb
+C:\programacion-tarea\subcarpeta\obj\Debug\net10.0\subcarpeta.GeneratedMSBuildEditorConfig.editorconfig
+C:\programacion-tarea\subcarpeta\obj\Debug\net10.0\subcarpeta.AssemblyInfoInputs.cache
+C:\programacion-tarea\subcarpeta\obj\Debug\net10.0\subcarpeta.AssemblyInfo.cs
+C:\programacion-tarea\subcarpeta\obj\Debug\net10.0\subcarpeta.csproj.CoreCompileInputs.cache
+C:\programacion-tarea\subcarpeta\obj\Debug\net10.0\subcarpeta.sourcelink.json
+C:\programacion-tarea\subcarpeta\obj\Debug\net10.0\subcarpeta.dll
+C:\programacion-tarea\subcarpeta\obj\Debug\net10.0\refint\subcarpeta.dll
+C:\programacion-tarea\subcarpeta\obj\Debug\net10.0\subcarpeta.pdb
+C:\programacion-tarea\subcarpeta\obj\Debug\net10.0\subcarpeta.genruntimeconfig.cache
+C:\programacion-tarea\subcarpeta\obj\Debug\net10.0\ref\subcarpeta.dll
