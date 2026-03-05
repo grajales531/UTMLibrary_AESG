@@ -1,0 +1,295 @@
+/*
+  =============================================================================
+  Script: 02_seed_data_utm_market.sql
+  Descripción: Carga de 250 productos semilla (Seeding) - Mercado México 2025.
+  Arquitecto: Senior Database Architect / Gemini CLI
+  Motor: Microsoft SQL Server 2022 Express
+  =============================================================================
+*/
+
+USE [Grajales];
+GO
+
+SET NOCOUNT ON;
+SET XACT_ABORT ON;
+GO
+
+BEGIN TRY
+    BEGIN TRANSACTION;
+
+    PRINT 'INFO: Iniciando limpieza de datos...';
+    -- Limpiar tablas dependientes primero
+    DELETE FROM [dbo].[DetalleVenta];
+    DELETE FROM [dbo].[Producto];
+
+    -- Reiniciar contadores de identidad
+    DBCC CHECKIDENT ('[dbo].[Producto]', RESEED, 0);
+
+    PRINT 'INFO: Cargando productos (Mix Retail MX 2025)...';
+    SET IDENTITY_INSERT [dbo].[Producto] ON;
+
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (1, 'Coca-Cola Original 600ml', '7501055300075', 'Coca-Cola', 19.50, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (2, 'Coca-Cola Sin Azúcar 600ml', '7501055310869', 'Coca-Cola', 18.00, 80);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (3, 'Pepsi Black 600ml', '7501011115163', 'Pepsi', 17.00, 90);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (4, 'Sidral Mundet 600ml', '7501055301829', 'Sidral Mundet', 16.50, 60);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (5, 'Jarritos Mandarina 600ml', '7501026011030', 'Jarritos', 14.00, 75);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (6, 'Sprite Limón 600ml', '7501055300303', 'Sprite', 17.50, 50);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (7, 'Fanta Naranja 600ml', '7501055300501', 'Fanta', 17.50, 50);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (8, 'Peñafiel Agua Mineral 600ml', '7501007712314', 'Peñafiel', 15.00, 120);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (9, 'Squirt Toronja 600ml', '7501007711447', 'Squirt', 16.50, 85);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (10, 'Agua Ciel 1L', '7501055302451', 'Ciel', 12.00, 200);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (11, 'Agua Bonafont 1L', '7501032400019', 'Bonafont', 13.00, 180);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (12, 'Red Bull 250ml', '9002490100070', 'Red Bull', 48.00, 40);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (13, 'Monster Energy 473ml', '749941001011', 'Monster', 45.00, 45);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (14, 'Gatorade Ponche 600ml', '7501011116269', 'Gatorade', 26.50, 70);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (15, 'Powerade Frutas 600ml', '7501055311491', 'Powerade', 25.00, 65);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (16, 'Manzanita Sol 600ml', '7501011115682', 'Manzanita Sol', 15.50, 55);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (17, 'Mirinda Naranja 600ml', '7501011131019', 'Mirinda', 15.50, 50);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (18, '7-Up Limón 600ml', '7501011115118', '7-Up', 16.50, 45);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (19, 'Dr Pepper 600ml', '7501007712390', 'Dr Pepper', 19.00, 30);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (20, 'Fresca Toronja 600ml', '7501055300600', 'Fresca', 16.50, 40);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (21, 'Topo Chico 355ml Glass', '7501026012013', 'Topo Chico', 18.50, 60);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (22, 'Del Valle Naranja 413ml', '7501055312306', 'Del Valle', 15.00, 80);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (23, 'Jumex Mango 473ml', '7501013144154', 'Jumex', 16.50, 85);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (24, 'BeLight Jamaica 1.5L', '7501011115323', 'BeLight', 22.00, 40);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (25, 'Fuze Tea Limón 600ml', '7501055310937', 'Fuze Tea', 17.50, 45);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (26, 'Arizona Green Tea 680ml', '613008713334', 'Arizona', 24.00, 50);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (27, 'Boing Guayaba 250ml Tetra', '7501031300129', 'Boing', 9.50, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (28, 'Boing Mango 500ml Glass', '7501031301034', 'Boing', 15.00, 70);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (29, 'Coca-Cola 2.5L Pet', '7501055303489', 'Coca-Cola', 42.00, 150);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (30, 'Pepsi 2.5L Pet', '7501011115651', 'Pepsi', 36.00, 120);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (31, 'Jarritos Fruit Punch 2L', '7501026011153', 'Jarritos', 28.00, 80);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (32, 'Peñafiel Sangría 600ml', '7501007712345', 'Peñafiel', 17.00, 55);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (33, 'VitaminWater Focus 500ml', '7501055311224', 'VitaminWater', 32.00, 30);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (34, 'VIVE 100 400ml', '7501071112454', 'Vive100', 15.00, 110);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (35, 'Electrolit Coco 625ml', '7501125134371', 'Electrolit', 31.50, 95);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (36, 'Electrolit Fresa 625ml', '7501125134319', 'Electrolit', 31.50, 95);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (37, 'Levite Fresa 1L', '7501032414115', 'Bonafont', 18.00, 70);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (38, 'Agua Ciel Exprim Limón 1L', '7501055312382', 'Ciel', 17.50, 60);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (39, 'Amper Energy Drink 473ml', '7501048860012', 'Amper', 22.00, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (40, 'Volt Blue Energy 473ml', '7503022415112', 'Volt', 20.00, 90);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (41, 'Santa Clara Leche Chocolate 250ml', '7501020511116', 'Santa Clara', 14.50, 65);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (42, 'Hershey Chocolate 236ml', '7501024560110', 'Hershey', 13.50, 60);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (43, 'Jumex Fresh Cítricos 600ml', '7501013161045', 'Jumex', 14.50, 75);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (44, 'Tang Naranja Sobre 15g', '7622210851112', 'Tang', 5.50, 300);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (45, 'Zuko Piña Sobre 15g', '7501002220111', 'Zuko', 5.50, 250);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (46, 'Nesquik Chocolate 240ml', '7501058611110', 'Nestle', 14.00, 70);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (47, 'Yoli Limón 600ml', '7501055301300', 'Yoli', 16.50, 40);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (48, 'Senzao Guaraná 600ml', '7501055310111', 'Senzao', 17.00, 35);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (49, 'Kermato Jugo de Tomate 290ml', '7501007712369', 'Kermato', 22.50, 30);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (50, 'Clamato Original 473ml', '7501007712376', 'Clamato', 28.00, 40);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (51, 'Sabritas Sal 42g', '7501011115111', 'Sabritas', 18.00, 150);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (52, 'Doritos Nacho 58g', '7501011115112', 'Sabritas', 19.00, 140);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (53, 'Cheetos Torciditos 52g', '7501011115113', 'Sabritas', 15.00, 160);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (54, 'Ruffles Queso 50g', '7501011115114', 'Sabritas', 18.50, 130);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (55, 'Tostitos Salsa Verde 65g', '7501011115115', 'Sabritas', 20.00, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (56, 'Takis Fuego 65g', '7501000111111', 'Barcel', 19.50, 150);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (57, 'Chips Fuego 55g', '7501000111112', 'Barcel', 21.00, 120);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (58, 'Runners 60g', '7501000111113', 'Barcel', 17.00, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (59, 'Hot Nuts Original 50g', '7501000111114', 'Barcel', 16.00, 140);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (60, 'Churrumais 50g', '7501011115116', 'Sabritas', 12.00, 180);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (61, 'Pake-T-Xo 70g', '7501011115117', 'Sabritas', 25.00, 80);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (62, 'Cacahuates Japoneses Karate 50g', '7501000111115', 'Barcel', 14.00, 150);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (63, 'Kranky 50g', '7501031311111', 'Ricolino', 16.00, 120);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (64, 'Panditas Clasicos 50g', '7501031311112', 'Ricolino', 15.50, 140);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (65, 'Paleta Payaso 45g', '7501031311113', 'Ricolino', 22.00, 90);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (66, 'Bubulubu 35g', '7501031311114', 'Ricolino', 14.00, 130);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (67, 'Duvalin Trisabor 15g', '7501031311115', 'Ricolino', 4.50, 400);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (68, 'Mazapán De la Rosa 28g', '7501021111111', 'De la Rosa', 7.00, 500);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (69, 'Pulparindo Original 14g', '7501021111112', 'De la Rosa', 5.00, 450);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (70, 'Pelon Pelo Rico 35g', '7501021111113', 'Hershey', 13.00, 200);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (71, 'Rockaleta Paleta', '7501021111114', 'Sonric''s', 8.50, 300);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (72, 'Skwinkles Rellenos 26g', '7501021111115', 'Lucas', 16.00, 180);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (73, 'Lucas Muecas Chamoy', '7501021111116', 'Lucas', 15.00, 150);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (74, 'Carlos V Chocolate 18g', '7501058611111', 'Nestle', 10.00, 250);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (75, 'Kinder Sorpresa 20g', '7501021111117', 'Ferrero', 32.00, 60);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (76, 'Ferrero Rocher 3pzas', '7501021111118', 'Ferrero', 45.00, 40);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (77, 'Snickers 52g', '7501021111119', 'Mars', 22.00, 110);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (78, 'Milky Way 48g', '7501021111120', 'Mars', 22.00, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (79, 'Trident Val-U-Pack Menta', '7501021111121', 'Trident', 25.00, 90);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (80, 'Clorets 2s', '7501021111122', 'Clorets', 3.00, 600);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (81, 'Halls Extra Fuerte', '7501021111123', 'Halls', 12.00, 200);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (82, 'Gansito Marinela 50g', '7501031311116', 'Marinela', 18.50, 140);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (83, 'Pingüinos Marinela 80g', '7501031311117', 'Marinela', 22.00, 120);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (84, 'Choco Roles 80g', '7501031311118', 'Marinela', 22.00, 110);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (85, 'Submarinos Vainilla 3pzas', '7501031311119', 'Marinela', 20.00, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (86, 'Barritas Fresa 67g', '7501031311120', 'Marinela', 17.50, 130);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (87, 'Canelitas Marinela 90g', '7501031311121', 'Marinela', 19.00, 115);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (88, 'Triki-Trakes 86g', '7501031311122', 'Marinela', 19.00, 110);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (89, 'Principe Marinela 106g', '7501031311123', 'Marinela', 23.00, 105);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (90, 'Suavicremas Vainilla 105g', '7501031311124', 'Marinela', 21.00, 95);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (91, 'Donitas Espolvoreadas Bimbo', '7501000111116', 'Bimbo', 21.00, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (92, 'Mantecadas Bimbo 4pzas', '7501000111117', 'Bimbo', 24.50, 95);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (93, 'Roles de Canela Bimbo 2pzas', '7501000111118', 'Bimbo', 23.00, 90);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (94, 'Nito Bimbo 62g', '7501000111119', 'Bimbo', 17.50, 120);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (95, 'Conchas Bimbo 2pzas', '7501000111120', 'Bimbo', 22.00, 85);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (96, 'Pan Blanco Bimbo Grande 680g', '7501000111121', 'Bimbo', 48.00, 150);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (97, 'Pan Integral Bimbo Grande', '7501000111122', 'Bimbo', 52.00, 130);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (98, 'Medias Noches Bimbo 8pzas', '7501000111123', 'Bimbo', 42.00, 140);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (99, 'Pan para Hot Dog Bimbo', '7501000111124', 'Bimbo', 42.00, 120);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (100, 'Tostado Clásico Bimbo 210g', '7501000111125', 'Bimbo', 35.00, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (101, 'Leche Lala Entera 1L', '7501020511117', 'Lala', 27.50, 200);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (102, 'Leche Alpura Clásica 1L', '7501020511118', 'Alpura', 28.00, 190);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (103, 'Leche Santa Clara Entera 1L', '7501020511119', 'Santa Clara', 32.00, 150);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (104, 'Yoghurt Lala Fresa 125g', '7501020511120', 'Lala', 10.50, 140);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (105, 'Yoghurt Bebible Alpura Fresa', '7501020511121', 'Alpura', 16.50, 120);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (106, 'Danup Fresa 220g', '7501020511122', 'Danone', 17.00, 130);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (107, 'Yakult 5 pack', '7501020511123', 'Yakult', 45.00, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (108, 'Queso Panela Lala 400g', '7501020511124', 'Lala', 68.00, 80);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (109, 'Queso Americano Nutrileche', '7501020511125', 'Nutrileche', 35.00, 110);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (110, 'Mantequilla Gloria 90g', '7501020511126', 'Gloria', 22.00, 120);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (111, 'Crema Alpura 200ml', '7501020511127', 'Alpura', 19.50, 130);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (112, 'Huevo Blanco 12pzas', '7501020511128', 'Generico', 42.00, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (113, 'Frijoles Isadora Bayos 430g', '7501020511129', 'Isadora', 22.50, 150);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (114, 'Frijoles La Sierra Refritos', '7501020511130', 'La Sierra', 21.00, 160);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (115, 'Arroz Extra Verde Valle 900g', '7501020511131', 'Verde Valle', 34.00, 120);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (116, 'Lentejas Verde Valle 500g', '7501020511132', 'Verde Valle', 28.00, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (117, 'Aceite Capullo 840ml', '7501020511133', 'Capullo', 52.00, 140);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (118, 'Aceite Nutrioli 850ml', '7501020511134', 'Nutrioli', 48.00, 150);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (119, 'Atún Herdez en Agua 130g', '7501020511135', 'Herdez', 21.50, 200);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (120, 'Atún Dolores en Aceite 130g', '7501020511136', 'Dolores', 21.00, 210);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (121, 'Mayonesa Hellmann''s 190g', '7501020511137', 'Hellmanns', 24.00, 140);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (122, 'Mayonesa McCormick con Limón', '7501020511138', 'McCormick', 26.50, 150);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (123, 'Salsa Valentina Etiqueta Amarilla', '7501020511139', 'Valentina', 18.00, 180);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (124, 'Salsa Búfalo Clasica 150g', '7501020511140', 'Búfalo', 16.50, 140);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (125, 'Catsup Del Fuerte 320g', '7501020511141', 'Del Fuerte', 19.50, 130);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (126, 'Sopa Maruchan Pollo Vaso', '7501020511142', 'Maruchan', 16.00, 300);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (127, 'Sopa Maruchan Camarón Limón', '7501020511143', 'Maruchan', 16.00, 280);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (128, 'Pasta La Moderna Codo No. 2', '7501020511144', 'La Moderna', 9.50, 250);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (129, 'Pasta La Moderna Spaghetti', '7501020511145', 'La Moderna', 9.50, 260);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (130, 'Puré de Tomate Del Fuerte 210g', '7501020511146', 'Del Fuerte', 8.50, 240);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (131, 'Chiles Jalapeños La Costeña', '7501020511147', 'La Costeña', 16.50, 200);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (132, 'Elote Dorado Herdez 220g', '7501020511148', 'Herdez', 15.50, 180);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (133, 'Café Nescafé Clásico 42g', '7501020511149', 'Nescafé', 28.00, 150);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (134, 'Café Legal con Sombrero 180g', '7501020511150', 'Legal', 45.00, 120);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (135, 'Chocolate Abuelita 90g', '7501020511151', 'Nestle', 18.50, 140);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (136, 'Azúcar Morena 1kg', '7501020511152', 'Generico', 35.00, 200);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (137, 'Sal de Mesa La Fina 500g', '7501020511153', 'La Fina', 12.00, 180);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (138, 'Knorr Suiza Caldo Pollo 8 cubos', '7501020511154', 'Knorr', 15.50, 250);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (139, 'Mermelada McCormick Fresa 270g', '7501020511155', 'McCormick', 38.00, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (140, 'Cajeta Coronado Quemada 370g', '7501020511156', 'Coronado', 65.00, 80);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (141, 'Corn Flakes Kellogg''s 150g', '7501020511157', 'Kelloggs', 25.00, 120);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (142, 'Zucaritas Kellogg''s 210g', '7501020511158', 'Kelloggs', 32.00, 110);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (143, 'Choco Krispis 230g', '7501020511159', 'Kelloggs', 34.00, 110);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (144, 'Galletas Marias Gamesa 170g', '7501020511160', 'Gamesa', 18.50, 200);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (145, 'Galletas Saladitas Gamesa 186g', '7501020511161', 'Gamesa', 22.00, 180);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (146, 'Galletas Emperador Chocolate', '7501020511162', 'Gamesa', 19.50, 150);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (147, 'Galletas Chokis 63g', '7501020511163', 'Gamesa', 16.50, 140);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (148, 'Galletas Oreo 114g', '7501020511164', 'Nabisco', 21.00, 160);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (149, 'Galletas Ritz 89g', '7501020511165', 'Nabisco', 17.50, 140);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (150, 'Pan Tostado Clásico Bimbo', '7501020511166', 'Bimbo', 38.00, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (151, 'Papel Higiénico Suavel 4 rollos', '7501020511167', 'Suavel', 24.50, 150);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (152, 'Papel Higiénico Regio 4 rollos', '7501020511168', 'Regio', 32.00, 140);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (153, 'Servilletas Pétalo 100 pzas', '7501020511169', 'Pétalo', 21.00, 160);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (154, 'Jabón Zote Blanco 400g', '7501020511170', 'La Corona', 22.50, 200);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (155, 'Jabón Roma 500g Polvo', '7501020511171', 'La Corona', 19.50, 180);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (156, 'Detergente Ariel Power 850g', '7501020511172', 'Ariel', 48.00, 120);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (157, 'Detergente Foca 500g Líquido', '7501020511173', 'La Corona', 26.00, 130);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (158, 'Suavizante Downy Libre Enjuague', '7501020511174', 'Downy', 35.00, 110);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (159, 'Cloro Los Escudos 950ml', '7501020511175', 'Generico', 15.00, 180);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (160, 'Limpiador Fabuloso Lavanda 1L', '7501020511176', 'Fabuloso', 24.00, 150);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (161, 'Jabón Palmolive Naturals 120g', '7501020511177', 'Palmolive', 18.50, 140);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (162, 'Jabón Camay Classic 120g', '7501020511178', 'Camay', 17.00, 130);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (163, 'Shampoo Savilé Sábila 750ml', '7501020511179', 'Savilé', 42.00, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (164, 'Shampoo Caprice Especial 750ml', '7501020511180', 'Caprice', 38.00, 110);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (165, 'Pasta Dental Colgate Triple Acción', '7501020511181', 'Colgate', 32.50, 120);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (166, 'Cepillo Dental Oral-B Indicator', '7501020511182', 'Oral-B', 28.00, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (167, 'Desodorante Speed Stick 50g', '7501020511183', 'Speed Stick', 45.00, 80);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (168, 'Rastrillo Gillette Prestobarba', '7501020511184', 'Gillette', 22.00, 150);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (169, 'Toallas Femeninas Kotex 10 pzas', '7501020511185', 'Kotex', 28.00, 120);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (170, 'Pañales Huggies Supreme Etapa 3', '7501020511186', 'Huggies', 180.00, 40);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (171, 'Cerveza Corona Extra 355ml', '7501064191512', 'Corona', 22.00, 300);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (172, 'Cerveza Victoria 355ml', '7501064191513', 'Victoria', 21.00, 280);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (173, 'Cerveza Modelo Especial 355ml', '7501064191514', 'Modelo', 25.00, 200);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (174, 'Cerveza Tecate Original Lata', '7501064191515', 'Tecate', 20.00, 350);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (175, 'Vino Tinto Casillero del Diablo', '7804320111111', 'Concha y Toro', 210.00, 30);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (176, 'Tequila José Cuervo Especial', '7501035011111', 'Jose Cuervo', 320.00, 20);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (177, 'Whisky Johnnie Walker Red Label', '5000267011111', 'Johnnie Walker', 450.00, 15);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (178, 'Cigarros Marlboro Rojos 20s', '7501045011111', 'Marlboro', 75.00, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (179, 'Cigarros Pall Mall Pepino 20s', '7501045011112', 'Pall Mall', 68.00, 90);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (180, 'Encendedor Bic Grande', '3086121111111', 'Bic', 22.00, 150);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (181, 'Pilas Duracell AA 2 pzas', '0413331111111', 'Duracell', 58.00, 60);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (182, 'Foco LED Philips 9W', '8718696111111', 'Philips', 45.00, 80);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (183, 'Alimento Perro Pedigree 1kg', '7501020511187', 'Pedigree', 62.00, 50);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (184, 'Alimento Gato Whiskas 1kg', '7501020511188', 'Whiskas', 75.00, 40);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (185, 'Veladora Vaso Grande', '7501020511189', 'Generico', 25.00, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (186, 'Escoba de Mijo', '7501020511190', 'Generico', 55.00, 30);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (187, 'Fibras para Trastes Scotch-Brite', '7501020511191', '3M', 18.00, 120);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (188, 'Guantes de Látex Vileda M', '7501020511192', 'Vileda', 32.00, 60);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (189, 'Insecticida Raid Hogar y Jardín', '7501020511193', 'Raid', 85.00, 50);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (190, 'Pastillas para Baño Pato Purific', '7501020511194', 'Pato', 22.00, 90);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (191, 'Chocolate Kinder Delice', '7501020511195', 'Ferrero', 16.50, 140);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (192, 'Borrachitos Dulces 200g', '7501020511196', 'Generico', 28.00, 60);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (193, 'Ate de Membrillo 250g', '7501020511197', 'Generico', 35.00, 40);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (194, 'Obleas con Cajeta Las Sevillanas', '7501020511198', 'Sevillanas', 42.00, 70);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (195, 'Pepitas con Sal 100g', '7501020511199', 'Generico', 15.00, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (196, 'Garapiñados Mani 100g', '7501020511200', 'Generico', 18.00, 80);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (197, 'Chicharrones de Cerdo 100g', '7501020511201', 'Sabritas', 35.00, 60);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (198, 'Papitas Preparadas en Bolsa', '7501020511202', 'Generico', 25.00, 50);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (199, 'Plátanos Fritos 100g', '7501020511203', 'Generico', 22.00, 70);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (200, 'Palomitas ACT II Mantequilla', '7501020511204', 'Act II', 18.50, 150);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (201, 'Aceitunas con Hueso 150g', '7501020511205', 'Búfalo', 32.00, 45);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (202, 'Alcaparras en Salmuera 100g', '7501020511206', 'Herdez', 45.00, 30);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (203, 'Avena Quacker 400g Bolsa', '7501020511207', 'Quaker', 28.50, 110);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (204, 'Barra Nutritiva Bimbo Multi', '7501020511208', 'Bimbo', 12.50, 150);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (205, 'Bicarbonato de Sodio 100g', '7501020511209', 'Generico', 8.00, 200);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (206, 'Bloqueador Solar Nivea 50ml', '7501020511210', 'Nivea', 145.00, 20);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (207, 'Bolsas para Basura Gde 10pzs', '7501020511211', 'Generico', 35.00, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (208, 'Caldo de Pollo Granulado 200g', '7501020511212', 'Knorr', 38.00, 90);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (209, 'Canela en Rama 20g', '7501020511213', 'Generico', 15.00, 150);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (210, 'Cardamomo Molido 50g', '7501020511214', 'Generico', 65.00, 15);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (211, 'Cepillo para Trastes', '7501020511215', 'Generico', 25.00, 60);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (212, 'Cereal Cheerios Miel 250g', '7501020511216', 'Nestle', 38.00, 85);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (213, 'Champiñones Rebanados Herdez', '7501020511217', 'Herdez', 24.00, 70);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (214, 'Chile Cascabel 50g', '7501020511218', 'Generico', 18.00, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (215, 'Chile Guajillo 100g', '7501020511219', 'Generico', 32.00, 120);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (216, 'Chocolate Ferrero 8pzas', '7501020511220', 'Ferrero', 110.00, 25);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (217, 'Cloro Blanqueador 1.5L', '7501020511221', 'Generico', 19.50, 150);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (218, 'Cocoa en Polvo 100g', '7501020511222', 'Hershey', 42.00, 50);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (219, 'Colgate Plax Enjuague 250ml', '7501020511223', 'Colgate', 48.00, 65);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (220, 'Crema Dental Sensodyne 75ml', '7501020511224', 'Sensodyne', 78.00, 40);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (221, 'Cucharas Plásticas 25pzas', '7501020511225', 'Generico', 22.00, 110);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (222, 'Desenredante Johnson 200ml', '7501020511226', 'Johnsons', 55.00, 35);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (223, 'Desodorante Dove Roll-on', '7501020511227', 'Dove', 52.00, 75);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (224, 'Detergente Salvo Líquido 500ml', '7501020511228', 'Salvo', 35.00, 140);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (225, 'Doritos Pizzerola 58g', '7501011115119', 'Sabritas', 19.00, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (226, 'Durex Preservativos 3pzas', '7501020511229', 'Durex', 65.00, 50);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (227, 'Ensalada de Legumbres Herdez', '7501020511230', 'Herdez', 16.50, 130);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (228, 'Esponja Scotch-Brite Cero Raya', '7501020511231', '3M', 19.50, 140);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (229, 'Fajitas de Pollo Congeladas', '7501020511232', 'Bachoco', 125.00, 20);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (230, 'Fiber One Barras 5pzas', '7501020511233', 'General Mills', 62.00, 45);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (231, 'Frijoles Negros Isadora 430g', '7501020511234', 'Isadora', 22.50, 150);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (232, 'Galletas Animalitos 500g', '7501020511235', 'Gamesa', 32.00, 80);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (233, 'Gel Ego Force 250ml', '7501020511236', 'Ego', 38.00, 100);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (234, 'Harina de Trigo San Antonio 1kg', '7501020511237', 'San Antonio', 24.50, 130);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (235, 'Harina Maseca Maíz 1kg', '7501020511238', 'Maseca', 22.00, 200);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (236, 'Hielo Bolsa 5kg', '7501020511239', 'Generico', 35.00, 40);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (237, 'Hojas de Maíz para Tamal', '7501020511240', 'Generico', 45.00, 50);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (238, 'Honeynut Cheerios 250g', '7501020511241', 'Nestle', 42.00, 75);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (239, 'Horchata de Arroz 1L Concentrado', '7501020511242', 'Tucán', 45.00, 60);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (240, 'Jabón para Manos Dial 221ml', '7501020511243', 'Dial', 32.00, 90);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (241, 'Knorr Pasta Tomate 100g', '7501020511244', 'Knorr', 12.00, 180);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (242, 'Leche Condensada La Lechera', '7501020511245', 'Nestle', 26.50, 150);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (243, 'Leche de Almendra Silk 1L', '7501020511246', 'Silk', 48.00, 70);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (244, 'Leche Evaporada Carnation 360g', '7501020511247', 'Nestle', 22.00, 160);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (245, 'Miel de Abeja Real de México', '7501020511248', 'Generico', 85.00, 30);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (246, 'Nesquik Chocolate Pollo 400g', '7501020511249', 'Nestle', 55.00, 90);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (247, 'Nuez de la India 100g', '7501020511250', 'Generico', 68.00, 50);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (248, 'Pasas de Uva 100g', '7501020511251', 'Generico', 18.00, 120);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (249, 'Pimienta Negra Molida 50g', '7501020511252', 'Generico', 25.00, 140);
+INSERT INTO [dbo].[Producto] (ProductoID, Nombre, SKU, Marca, Precio, Stock) VALUES (250, 'Vainilla Líquida 250ml', '7501020511253', 'Molina', 32.00, 80);
+
+    SET IDENTITY_INSERT [dbo].[Producto] OFF;
+
+    -- Sincronizar el contador de identidad al final
+    DBCC CHECKIDENT ('[dbo].[Producto]', RESEED, 250);
+
+    COMMIT TRANSACTION;
+    PRINT 'INFO: Carga de 250 productos completada exitosamente.';
+END TRY
+BEGIN CATCH
+    IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION;
+    PRINT 'ERROR: Ocurrió un error durante la carga de datos.';
+    PRINT 'Detalle del Error: ' + ERROR_MESSAGE();
+END CATCH
+GO
