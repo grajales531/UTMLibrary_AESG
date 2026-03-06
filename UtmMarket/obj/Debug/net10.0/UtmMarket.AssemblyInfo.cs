@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("ca575f30-ec96-4f14-91c0-1d548d239675")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("UtmMarket")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+88bdebfb7f6588ef9b5b8bbc4a3a3d309bf00af7")]
 [assembly: System.Reflection.AssemblyProductAttribute("UtmMarket")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UtmMarket")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
